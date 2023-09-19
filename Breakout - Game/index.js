@@ -121,8 +121,8 @@ function checkForCollisions() {
         const allBlocks = Array.from(document.querySelectorAll(".block"))
         allBlocks[i].classList.remove("block")
         console.log(allBlocks)
-        // blocks.splice(i, 1)
-        // changeDirection()
+        blocks.splice(i, 1)
+        changeDirection()
         // score++
    
     }
