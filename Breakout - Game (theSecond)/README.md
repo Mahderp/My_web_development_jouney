@@ -1,1 +1,1 @@
-this is Breakout - Game that made for second time.
+this is Breakout - Game that made for second time, with the help of Kenny Yip Coding's course.
