@@ -8,6 +8,7 @@ const boardHeight = 300
 let timerId
 let xDirection = -2
 let yDirection = 2
+let score = 0
 
 const userstart = [230, 10]
 let currentposition = userstart
@@ -118,13 +119,19 @@ function checkForCollisions() {
             (ballCurrentPosition[0] > blocks[i].bottomLeft[0] && ballCurrentPosition[0] < blocks[i].bottomRight[0]) &&
             ((ballCurrentPosition[1] + ballDiameter) > blocks[i].bottomLeft[1] && ballCurrentPosition[1] < blocks[i].topLeft[i])
     ) {
-        const allBlocks = Array.from(document.querySelectorAll(".block"))
-        allBlocks[i].classList.remove("block")
-        console.log(allBlocks)
+        const allBlocks = Array.from(document.querySelectorAll('.block'))
+        allBlocks[i].classList.remove('block')   
         blocks.splice(i, 1)
         changeDirection()
-        // score++
-   
+        score++
+        scoreDisplay.innerHTML = score
+
+        //check for win
+        if (blocks.length === 0) {
+            scoreDisplay.innerHTML = 'You Win!'
+            clearInterval(timerId)
+            document.removeEventListener('keydown', moveUser)
+        }
     }
 }
 
@@ -135,6 +142,14 @@ function checkForCollisions() {
         ballCurrentPosition[1] >= (boardHeight - ballDiameter) ||
         ballCurrentPosition[0] <= 0
         ) {
+        changeDirection()
+    }
+
+    //check for user collisions
+    if (
+        (ballCurrentPosition[0] > currentposition && ballCurrentPosition[0] < currentposition[0] + blockWidth) &&
+        (ballCurrentPosition0[1] > currentposition[1] && ballCurrentPosition[1] < currentposition[1] + blockHeight)
+    ) {
         changeDirection()
     }
 
