@@ -21,7 +21,7 @@ let player = {
 let ballWidth = 10;
 let ballHeight = 10;
 let ballVelocityX = 11; //normal = 3
-let ballVelocityY = 3; //normal = 2
+let ballVelocityY = 4; //normal = 2
 
 let ball = {
     x : boardWidth/2,
